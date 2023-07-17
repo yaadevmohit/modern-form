@@ -1,34 +1,49 @@
 import { useState } from 'react'
-import './App.css'
+import StepOne from './assets/StepOne'
 
-function App() {
+const App = () =>  {
+  
+  const styles = {
+    formContainer: {
+      display: 'flex',
+      flexFlow: "column wrap",
+      alignItems: "center"
+    },
+    formStepContainer: {
+      display: 'flex'
+    },
+    formStep: {
+      width: '32px',
+      height: "32px",
+      fontSize: "1rem",
+      borderRadius: "100%",
+      backgroundColor: 'transparent',
+      border: "solid white",
+      color: "white",
+      margin: "28px 8px"
+    },
+    mainForm: {
+      background: 'snow',
+      marginLeft: "15px",
+      marginRight: '15px',
+      padding: "20px 12px",
+      borderRadius: "8px",
+    },
+
+
+  }
 
   return (
     <>
-      <div className='form-container'>
-        <div className='form-stage-container'>
-          <button className='form-stage'>1</button>
-          <button className='form-stage'>2</button>
-          <button className='form-stage'>3</button>
-          <button className='form-stage'>4</button>
+      <div style={styles.formContainer}>
+        <div  style={styles.formStepContainer}>
+          <button style={styles.formStep}>1</button>
+          <button style={styles.formStep}>2</button>
+          <button style={styles.formStep}>3</button>
+          <button style={styles.formStep}>4</button>
         </div>
-        <form className='main-form'>
-          <div className='stage-heading'>
-            <h2>Personal info</h2>
-            <span>Please provide your name, email address and phone number.</span>
-          </div>
-          <div className='form-field'>
-            <legend for='name'>Name</legend>
-            <input type='text' id='name' name='name' placeholder='e.g. Stehpen king'/>
-          </div>
-          <div className='form-field'>
-            <legend for='email'>Email Address</legend>
-            <input type='email' id='email' name='email' placeholder='e.g. stephen@lorem.ipsum'/>
-          </div>
-          <div className='form-field'>
-            <legend for='phone'>Phone Number</legend>
-            <input type='tel' id='phone' name='phone' placeholder='e.g. 111111111'/>
-          </div>
+        <form style={styles.mainForm}>
+          <StepOne />
         </form>
       </div>
     </>
