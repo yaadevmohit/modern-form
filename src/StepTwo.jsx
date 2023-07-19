@@ -1,15 +1,14 @@
 import React from 'react'
 import './assets/fonts/Ubuntu-Bold.ttf'
-const Option = () => {
+import arcadeSvg from './assets/images/icon-arcade.svg'
+import advancedSvg from './assets/images/icon-advanced.svg'
+import proSvg from './assets/images/icon-pro.svg'
+import './App.css'
+
+
+const Option = ({inputName, priceMo, priceYr, logo}) => {
 
     const styles = {
-        
-        optionContainer: {
-            width: "100%",
-            border: "Solid black",
-            margin: "10px 0px"
-        }
-        ,
         
         option: {
             display: "flex",
@@ -23,11 +22,12 @@ const Option = () => {
     }
 
     return(
-        <div style={styles.optionContainer}>
-            <label style={styles.option} > 
-                <input type="radio" id="option1" name="options" value="option1" style={styles.input} />
-                Arcade
-                <span>$9/mo.</span>
+        <div className='optionContainer'>
+            <img src={logo}/>
+            <label className='option' >
+                <input type="radio" id="option1" name="options" value="option1"  />
+                {inputName}
+                <span>{priceMo}</span>
             </label>
         </div>
     )
@@ -37,8 +37,9 @@ const Option = () => {
 const StepTwo = () => {
     return(
         <>
-            <Option />
-            <Option />
+            <Option inputName="Arcade" logo={arcadeSvg} priceMo="$9/mo"/>
+            <Option inputName="Advanced" logo={advancedSvg} priceMo="$12/mo"/>
+            <Option inputName="Pro" logo={proSvg} priceMo="$15/mo"/>
         </>
     )
 

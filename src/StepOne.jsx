@@ -1,7 +1,11 @@
 import React from 'react'
 
-const InputField = ({name, id, type, placeholder}) => {
+const colors = {
+    coolGray: "hsl(231, 11%, 63%)",
+    lightGray: "hsl(229, 24%, 87%)"
+}
 
+const InputField = ({name, id, type, placeholder}) => {
     const styles = {
         formField: {
             margin: "20px 8px 20px 0px",
@@ -13,7 +17,8 @@ const InputField = ({name, id, type, placeholder}) => {
             height: "30px",
             marginTop: "4px",
             borderRadius: "4px",
-            border: "lightgrey solid",
+            border: `${colors.lightGray} solid`,
+            borderWidth: "thin",
             paddingLeft: "14px",
             fontFamily: "Ubuntu-Regular",
         }

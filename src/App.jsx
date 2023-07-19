@@ -1,37 +1,13 @@
 import { useState } from 'react'
 import StepOne from './StepOne'
 import StepTwo from './StepTwo'
+import StepInfo from './StepInfo'
+import Footer from './Footer'
 import './index.css'
 
+
 const colors = {
-  marineBlue: "hsl(213, 96%, 18%)",
-  lightGray: "hsl(229, 24%, 87%)",
-  coolGray: "hsl(231, 11%, 63%)"
-
-}
-
-const StepInfo = ({heading, about}) => {
-
-    const styles = {
-      headingInfo: {
-        marginBottom: "8px",
-        font: "32px",
-        fontFamily: "Ubuntu-Bold",
-        color: "hsl(213, 96%, 18%)"
-      },
-      aboutInfo: {
-        color: colors.coolGray, 
-        fontFamily: "Ubuntu-Regular", 
-        fontWeight: "Medium",
-        fontSize: "16px"
-      }
-    }
-  return (
-    <div >
-      <h2 style={styles.headingInfo}>{heading}</h2>
-      <span style={styles.aboutInfo}>{about}</span>
-    </div>
-  )
+  white: "hsl(0, 0%, 100%)"
 }
 
 const App = () =>  {
@@ -41,26 +17,30 @@ const App = () =>  {
     formContainer: {
       display: 'flex',
       flexFlow: "column wrap",
-      alignItems: "center"
+      alignItems: "center",
+      position: "relative",
+      minHeight: "100vh"
     },
     formStepContainer: {
-      display: 'flex'
+      display: 'flex',
     },
     formStep: {
-      width: '32px',
-      height: "32px",
-      fontSize: "1rem",
+      width: '2.25rem',
+      height: "2.25rem",
+      fontSize: "1.25rem",
       borderRadius: "100%",
       backgroundColor: 'transparent',
       border: "solid white",
+      borderWidth: "thin",
       color: "white",
-      margin: "28px 8px"
+      margin: "2.4rem 0.67rem",
+      cursor: "pointer"
     },
     mainForm: {
-      background: 'snow',
-      marginLeft: "15px",
-      marginRight: '15px',
-      padding: "6px 24px",
+      background: colors.white,
+      marginLeft: "1.5rem",
+      marginRight: '1.5rem',
+      padding: "0.5rem 2rem",
       borderRadius: "8px",
     },
 
@@ -71,16 +51,18 @@ const App = () =>  {
     <>
       <div style={styles.formContainer}>
         <div  style={styles.formStepContainer}>
-          <button style={styles.formStep}>1</button>
+          <button style={styles.formStep} onClick={() => alert("step one clicked")}>1</button>
           <button style={styles.formStep}>2</button>
           <button style={styles.formStep}>3</button>
           <button style={styles.formStep}>4</button>
         </div>
         <form style={styles.mainForm}>
-          <StepInfo heading="Personal Info" about="Please enter your Name, email address and phone number"/>
-          <StepOne />
+          <StepInfo heading="Select your plan" about="You have the option of monthly or yearly billing"/>
+          <StepTwo />
         </form>
+        <Footer />
       </div>
+
     </>
   )
 }

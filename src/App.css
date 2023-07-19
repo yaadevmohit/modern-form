@@ -57,3 +57,67 @@ body {
   border: lightgrey solid;
   padding-left: 14px;
 } */
+
+.footerButtons {
+  margin-top: 2.5rem;
+  position: absolute;
+  bottom: 0;
+  height: 3rem;
+  background-color: white;
+  width: 100vw;
+}
+
+.forwardButton {
+  border: none;
+  margin: 0.5rem;
+  padding: 6px;
+  border-radius: 4px;
+  background-color: hsl(213,96%,18%);
+  color: white;
+  font-family: "Ubuntu-Regular";
+  position: absolute;
+  right: 4px;
+}
+
+.backwardButton {
+  border: none;
+  background-color: transparent;
+  color: gray;
+  font-family: "Ubuntu-Regular";
+  margin: 0.5rem;
+  padding: 6px;
+}
+
+
+/* stepTwo */
+
+.optionContainer {
+  max-width: 100%;
+  border: Solid hsl(229, 24%, 87%);
+  border-radius: 8px;
+  border-width: thin;
+  margin: 10px 0px; 
+  display: flex;
+  justify-content: flex-start;
+  padding: 1rem;
+}
+
+.option {
+  display: flex;
+  font-size: 1.2rem;
+  flex-flow: column wrap;
+  font-family: "Ubuntu-Medium";
+  color: hsl(213, 96%, 18%);
+  margin-left: 1rem;
+}
+
+.option > span {
+  font-family: "Ubuntu-Regular";
+  font-size: 0.9rem;
+  color: hsl(231, 11%, 63%);
+}
+
+
+.option > input {
+  display: None;
+}
