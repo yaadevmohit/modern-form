@@ -4,42 +4,16 @@ import arcadeSvg from './assets/images/icon-arcade.svg'
 import advancedSvg from './assets/images/icon-advanced.svg'
 import proSvg from './assets/images/icon-pro.svg'
 import './App.css'
+import Option from './Option'
 
-
-const Option = ({inputName, priceMo, priceYr, logo}) => {
-
-    const styles = {
-        
-        option: {
-            display: "flex",
-            fontSize: "28px",
-            flexFlow: "column wrap"
-
-        },
-        input: {
-            display: "None",
-        }
-    }
-
-    return(
-        <div className='optionContainer'>
-            <img src={logo}/>
-            <label className='option' >
-                <input type="radio" id="option1" name="options" value="option1"  />
-                {inputName}
-                <span>{priceMo}</span>
-            </label>
-        </div>
-    )
-}
 
 
 const StepTwo = () => {
     return(
         <>
-            <Option inputName="Arcade" logo={arcadeSvg} priceMo="$9/mo"/>
-            <Option inputName="Advanced" logo={advancedSvg} priceMo="$12/mo"/>
-            <Option inputName="Pro" logo={proSvg} priceMo="$15/mo"/>
+            <Option inputName="Arcade" logo={arcadeSvg} nameDetail="$9/mo" type="radio"/>
+            <Option inputName="Advanced" logo={advancedSvg} nameDetail="$12/mo" type="radio"/>
+            <Option inputName="Pro" logo={proSvg} nameDetail="$15/mo" type="radio"/>
         </>
     )
 

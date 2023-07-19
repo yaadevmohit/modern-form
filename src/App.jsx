@@ -4,6 +4,7 @@ import StepTwo from './StepTwo'
 import StepInfo from './StepInfo'
 import Footer from './Footer'
 import './index.css'
+import StepThree from './StepThree'
 
 
 const colors = {
@@ -38,8 +39,8 @@ const App = () =>  {
     },
     mainForm: {
       background: colors.white,
-      marginLeft: "1.5rem",
-      marginRight: '1.5rem',
+      marginLeft: "0.8rem",
+      marginRight: '0.8rem',
       padding: "0.5rem 2rem",
       borderRadius: "8px",
     },
@@ -57,8 +58,10 @@ const App = () =>  {
           <button style={styles.formStep}>4</button>
         </div>
         <form style={styles.mainForm}>
-          <StepInfo heading="Select your plan" about="You have the option of monthly or yearly billing"/>
+          <StepInfo heading="Pick add-ons" about="Add-ons help enhance your gaming experience"/>
+          <StepOne />
           <StepTwo />
+          <StepThree />
         </form>
         <Footer />
       </div>

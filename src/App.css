@@ -89,7 +89,7 @@ body {
 }
 
 
-/* stepTwo */
+/* Step Two */
 
 .optionContainer {
   max-width: 100%;
@@ -98,26 +98,39 @@ body {
   border-width: thin;
   margin: 10px 0px; 
   display: flex;
-  justify-content: flex-start;
-  padding: 1rem;
+  flex-flow: row;
+  /* justify-content: space-around; */
+  align-items: center;
+  padding: 0.8rem 0.8rem;
+}
+
+.optionContainer > span {
+  justify-self: flex-end;
 }
 
 .option {
   display: flex;
-  font-size: 1.2rem;
+  font-size: 1rem;
+  margin-left: 1rem;
   flex-flow: column wrap;
   font-family: "Ubuntu-Medium";
   color: hsl(213, 96%, 18%);
-  margin-left: 1rem;
 }
 
 .option > span {
   font-family: "Ubuntu-Regular";
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   color: hsl(231, 11%, 63%);
 }
 
+.optionContainer > span {
+  font-size: 0.8rem;
+  color: hsl(243, 100%, 62%);
+  font-family: "Ubuntu-Medium";
+  margin-left: 1.9rem;
+  justify-self: flex-end;
+}
 
-.option > input {
+.optionContainer > input[type="radio"] {
   display: None;
 }
