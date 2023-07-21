@@ -6,7 +6,7 @@ import proSvg from './assets/images/icon-pro.svg'
 import './App.css'
 import Option from './Option'
 
-const options = {
+const optionsData = {
     Arcade: {
         name: "Arcade",
         logo: arcadeSvg,
@@ -23,37 +23,22 @@ const options = {
         name: "Pro",
         logo: proSvg,
         moPrice: "$12/mo",
-        yrPrice: "$120/",
+        yrPrice: "$120/yr",
     }
-
 }
 
-
-
-const StepTwo = ( {options} ) => {
+const StepTwo = () => {
 
     const [isYearly, setIsYearly] = useState(false);
-
+    
     function handleToggle() {
         setIsYearly(!isYearly)
     }
-
     return(
         <>  
-            {Object.values(options.map((option, index) =>(
-                    <>
-                    <Option 
-                            key={index}
-                            inputName={option.name}
-                            logo={option.log}
-                            nameDetail={isYearly ? option.yrPrice : option.moPrice}
-                            type="radio"
-                        />
-                    </>
-                    
-                ))
-            
-            )}
+            <Option inputName={optionsData.Arcade.name} logo={optionsData.Arcade.logo} nameDetail={isYearly ? optionsData.Arcade.yrPrice : optionsData.Arcade.moPrice} type="radio"/>
+            <Option inputName={optionsData.Advanced.name} logo={optionsData.Advanced.logo} nameDetail={isYearly ? optionsData.Advanced.yrPrice : optionsData.Advanced.moPrice} type="radio"/>
+            <Option inputName={optionsData.Pro.name} logo={optionsData.Arcade.logo} nameDetail={isYearly ? optionsData.Pro.yrPrice : optionsData.Pro.moPrice} type="radio"/>
             <div className='interval-toggle'>
                 <span>Monthly</span>
                 <label className='switch'>

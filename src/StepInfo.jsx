@@ -19,7 +19,7 @@ const StepInfo = ({heading, about}) => {
         },
         aboutInfo: {
           color: colors.coolGray, 
-          fontFamily: "Ubuntu-Medium", 
+          fontFamily: "Ubuntu-Regular", 
           fontSize: "16px"
         }
       }
