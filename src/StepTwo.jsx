@@ -3,7 +3,6 @@ import './assets/fonts/Ubuntu-Bold.ttf'
 import arcadeSvg from './assets/images/icon-arcade.svg'
 import advancedSvg from './assets/images/icon-advanced.svg'
 import proSvg from './assets/images/icon-pro.svg'
-import './App.css'
 import Option from './Option'
 
 const optionsData = {

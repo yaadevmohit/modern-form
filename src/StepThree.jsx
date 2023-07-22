@@ -1,4 +1,3 @@
-import './App.css'
 import Option from './Option'
 
 const StepThree = () => {

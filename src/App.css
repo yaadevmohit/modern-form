@@ -1,4 +1,12 @@
 /* main app */
+:root {
+  --marine-blue: hsl(213, 96%, 18%);
+  --light-gray: hsl(229, 24%, 87%);
+  --cool-gray: hsl(231, 11%, 63%);
+  --white: hsl(0, 0%, 100%)
+}
+
+
 
 .form-container {
   display: flex;
@@ -63,6 +71,38 @@
   font-family: "Ubuntu-Regular";
   margin: 0.5rem;
   padding: 6px;
+}
+
+/* Step header component */
+
+.heading-info {
+  margin-bottom: 8px;
+  font-size: 32px;
+  font-family: "Ubuntu-Bold";
+  color: var(--marine-blue);
+}
+
+.about-info {
+  color: var(--cool-gray);
+  font-family: "Ubuntu-Regular";
+  font-size: 16px;
+}
+
+/* Step one */
+.form-field {
+  margin: 20px 8px 20px 0px;
+  font-family: "Ubuntu-Regular";
+}
+
+.form-input {
+  width: 100%;
+  height: 30px;
+  margin-top: 4px;
+  border-radius: 4px;
+  border: hsl(229, 24%, 87%) solid;
+  border-width: thin;
+  padding-left: 14px;
+  font-family: "Ubuntu-Regular";
 }
 
 
