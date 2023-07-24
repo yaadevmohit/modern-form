@@ -33,6 +33,11 @@
   cursor: pointer;
 }
 
+.active {
+  background-color: hsl(206, 94%, 60%);
+}
+
+
 .main-form {
   background: white;
   margin-left: 0.8rem;
@@ -64,13 +69,17 @@
   right: 4px;
 }
 
-.backwardButton {
+.backward-button {
   border: none;
   background-color: transparent;
   color: gray;
   font-family: "Ubuntu-Regular";
   margin: 0.5rem;
   padding: 6px;
+}
+
+.hide-btn {
+  display: none;
 }
 
 /* Step header component */

@@ -6,6 +6,12 @@ const StepThree = () => {
             <Option type="checkbox" inputName="Online service" nameDetail="Access to multiplayer games">
                 <span>+$10/yr</span>
             </Option>
+            <Option type="checkbox" inputName="Online service" nameDetail="Access to multiplayer games">
+                <span>+$10/yr</span>
+            </Option>
+            <Option type="checkbox" inputName="Online service" nameDetail="Access to multiplayer games">
+                <span>+$10/yr</span>
+            </Option>
 
         </>
     )
