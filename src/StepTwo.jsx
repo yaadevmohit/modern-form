@@ -4,6 +4,7 @@ import arcadeSvg from './assets/images/icon-arcade.svg'
 import advancedSvg from './assets/images/icon-advanced.svg'
 import proSvg from './assets/images/icon-pro.svg'
 import Option from './Option'
+import StepInfo from './StepInfo'
 
 const optionsData = {
     Arcade: {
@@ -35,9 +36,16 @@ const StepTwo = () => {
     }
     return(
         <>  
-            <Option inputName={optionsData.Arcade.name} logo={optionsData.Arcade.logo} nameDetail={isYearly ? optionsData.Arcade.yrPrice : optionsData.Arcade.moPrice} type="radio"/>
-            <Option inputName={optionsData.Advanced.name} logo={optionsData.Advanced.logo} nameDetail={isYearly ? optionsData.Advanced.yrPrice : optionsData.Advanced.moPrice} type="radio"/>
-            <Option inputName={optionsData.Pro.name} logo={optionsData.Arcade.logo} nameDetail={isYearly ? optionsData.Pro.yrPrice : optionsData.Pro.moPrice} type="radio"/>
+            <StepInfo heading="Select your plan" about="You have the option of monthly or yearly billing."/>
+            <Option inputName={optionsData.Arcade.name} logo={optionsData.Arcade.logo} nameDetail={isYearly ? optionsData.Arcade.yrPrice : optionsData.Arcade.moPrice} type="radio">
+                <span>{isYearly && "2 Months free"}</span>
+            </Option>
+            <Option inputName={optionsData.Advanced.name} logo={optionsData.Advanced.logo} nameDetail={isYearly ? optionsData.Advanced.yrPrice : optionsData.Advanced.moPrice} type="radio">
+                <span>{isYearly && "2 Months free"}</span>
+            </Option>
+            <Option inputName={optionsData.Pro.name} logo={optionsData.Arcade.logo} nameDetail={isYearly ? optionsData.Pro.yrPrice : optionsData.Pro.moPrice} type="radio">
+                <span>{isYearly && "2 Months free"}</span>
+            </Option>
             <div className='interval-toggle'>
                 <span>Monthly</span>
                 <label className='switch'>

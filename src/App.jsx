@@ -7,6 +7,8 @@ import './index.css'
 import './App.css'
 import StepThree from './StepThree'
 
+const headingInfo = [{heading: "a", info: "a"}, {heading: "a2", info: "a2"}]
+
 const App = () =>  {
   const [step, setStep] = useState(1)
   function handleClick(e) {
@@ -14,7 +16,7 @@ const App = () =>  {
       setStep(step - 1)
     }
     else if (e.target.value == 'fwd-btn' && step <= 4){
-    setStep(step + 1)
+      setStep(step + 1)
     }
     else {
       setStep(e.target.value)
@@ -31,7 +33,6 @@ const App = () =>  {
           <button className={step === 4 ? "form-step active" : "form-step"}>4</button>
         </div>
         <form className='main-form'>
-          <StepInfo heading="Pick add-ons" about="Add-ons help enhance your gaming experience"/>
           {step == 1 ? <StepOne /> : step == 2 ? <StepTwo /> : <StepThree/>}
         </form>
         {step <= 4 && <Footer handleClick={handleClick} step={step}/>}
