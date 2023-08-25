@@ -11,7 +11,7 @@ const optionsData = {
         name: "Arcade",
         logo: arcadeSvg,
         moPrice: "$9/mo",
-        yrPrice: "$100/yr",
+        yrPrice: "$99/yr",
     },
     Advanced: {
         name: "Advanced",
@@ -22,8 +22,8 @@ const optionsData = {
     Pro: {
         name: "Pro",
         logo: proSvg,
-        moPrice: "$12/mo",
-        yrPrice: "$120/yr",
+        moPrice: "$15/mo",
+        yrPrice: "$150/yr",
     }
 }
 
@@ -38,13 +38,13 @@ const StepTwo = () => {
         <>  
             <StepInfo heading="Select your plan" about="You have the option of monthly or yearly billing."/>
             <Option inputName={optionsData.Arcade.name} logo={optionsData.Arcade.logo} nameDetail={isYearly ? optionsData.Arcade.yrPrice : optionsData.Arcade.moPrice} type="radio">
-                <span>{isYearly && "2 Months free"}</span>
+                {isYearly && <span>2 Months free</span>}
             </Option>
             <Option inputName={optionsData.Advanced.name} logo={optionsData.Advanced.logo} nameDetail={isYearly ? optionsData.Advanced.yrPrice : optionsData.Advanced.moPrice} type="radio">
-                <span>{isYearly && "2 Months free"}</span>
+                {isYearly && <span>2 Months free</span>}
             </Option>
             <Option inputName={optionsData.Pro.name} logo={optionsData.Arcade.logo} nameDetail={isYearly ? optionsData.Pro.yrPrice : optionsData.Pro.moPrice} type="radio">
-                <span>{isYearly && "2 Months free"}</span>
+                {isYearly && <span>2 Months free</span>}
             </Option>
             <div className='interval-toggle'>
                 <span>Monthly</span>
