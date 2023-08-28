@@ -306,7 +306,7 @@
     justify-content: center;
   }
   .forward-button {
-    margin: 0;
+    margin-right: auto;
     width: 6rem;
     height: 2.2rem;
     font-size: 1rem;
@@ -316,7 +316,7 @@
   .backward-button {
     position: absolute;
     left: -31.8rem;
-    bottom: 1.2rem;
+    top: 0rem;
     font-size: 1rem;
   }
   .option-container {
@@ -355,4 +355,7 @@
     margin-left: 1rem;
   }
   
+  .option-container-three > .add-price {
+    font-size: 1rem;
+  }
 }

@@ -46,12 +46,33 @@ const App = () =>  {
   }
 
   function handleSelected(e) {
+    if (e.target.type === "checkbox") {
+      if (formData.addOns.includes(e.target.name)) {
+        const currentOptions = formData.addOns.filter(option => option !== e.target.name)
+        setFormData(prevData => {
+          return {
+            ...prevData,
+            addOns: currentOptions
+          }
+        })
+      }
+      else {
+      setFormData(prevData => {
+        return {
+          ...prevData,
+          addOns: [...prevData.addOns, e.target.name]
+        }
+      })
+      }
+    }
+    else {
     setFormData(prevData  => {
       return {
         ...prevData,
         plan: e.target.id === prevData.plan ? "" : e.target.id
       }
     })
+    }
   }
   function handleYearlyToggle() {
     setIsYearly(!isYearly)
@@ -85,7 +106,7 @@ const App = () =>  {
               : 
                 step == 2 ? <StepTwo handleToggle={handleYearlyToggle} handleSelected={handleSelected} Yearly={isYearly} selectedPlan={formData.plan}/> 
               : 
-                step==3 ? <StepThree yearly={isYearly}/> 
+                step==3 ? <StepThree yearly={isYearly} handleChange={handleSelected} selectedAddOns={formData.addOns}/> 
               : 
                 step==4 ? <Summary />
               :
