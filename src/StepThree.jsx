@@ -1,20 +1,28 @@
-import Option from './Option'
+import React, { useState } from 'react'
+import data from "./assets/formData"
 import StepInfo from './StepInfo'
 
+const optionsData = data.stepThreeOptions
 
-const StepThree = () => {
+const StepThree = ({yearly}) => {
+
+    const options = optionsData.map(option => {
+        return(
+            <div className='option-container-three' key={option.id}>
+                <input type="checkbox" name={option.id} value={option.name}  />    
+                <img src={option.logo}/>
+                <label className='option' htmlFor={option.id}>
+                    {option.name}
+                    <span>{option.info}</span>
+                </label>
+                <span className='add-price'>{yearly ? option.yrPrice : option.price}</span>
+            </div>
+        )
+    })
     return(
         <>
-            <StepInfo heading="Pick add-ons" about="Add-ons help enhance your gaming experience"/>
-            <Option type="checkbox" inputName="Online service" nameDetail="Access to multiplayer games">
-                <span>+$10/yr</span>
-            </Option>
-            <Option type="checkbox" inputName="Online service" nameDetail="Access to multiplayer games">
-                <span>+$10/yr</span>
-            </Option>
-            <Option type="checkbox" inputName="Online service" nameDetail="Access to multiplayer games">
-                <span>+$10/yr</span>
-            </Option>
+            <StepInfo heading="Pick add-ons" about="Add-ons help enhance your gaming experience."/>
+            {options}
         </>
     )
 }

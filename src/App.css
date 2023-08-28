@@ -55,7 +55,7 @@
 }
 
 /* Footer  */
-.footerButtons {
+.footer-buttons {
   margin-top: 2.5rem;
   position: absolute;
   bottom: 0;
@@ -66,7 +66,7 @@
 
 }
 
-.forwardButton {
+.forward-button {
   border: none;
   margin: 1.25rem;
   padding: 6px;
@@ -76,6 +76,7 @@
   font-family: "Ubuntu-Regular";
   position: absolute;
   right: 4px;
+  cursor: pointer;
 }
 
 .backward-button {
@@ -85,6 +86,7 @@
   font-family: "Ubuntu-Regular";
   margin: 1rem;
   padding: 6px;
+  cursor: pointer;
 }
 
 .hide-btn {
@@ -126,7 +128,7 @@
 
 /* Step Two */
 
-.option-container {
+.option-container, .option-container-three {
   max-width: 100%;
   border: Solid hsl(229, 24%, 87%);
   border-radius: 8px;
@@ -137,7 +139,9 @@
   /* justify-content: space-around; */
   align-items: center;
   padding: 0.8rem 0.8rem;
+  max-width: 320px;
 }
+
 
 
 .option {
@@ -155,16 +159,20 @@
   color: hsl(231, 11%, 63%);
 }
 
-.option-container > span {
+.option > .discount-span{
   font-size: 0.8rem;
-  color: hsl(243, 100%, 62%);
+  color: var(--marine-blue);
   font-family: "Ubuntu-Medium";
-  margin-left: 1.9rem;
-  justify-self: flex-end;
+  margin-top: .5rem;
 }
 
-.option-container > input[type="radio"] {
-  display: None;
+.option-container-three > .add-price {
+  justify-content: flex-end;
+  margin-left: auto;
+  color: rgb(3, 3, 254);
+  font-weight: 500;
+  word-spacing: 1rem;
+  font-size: 12px;
 }
 
 /* toggle button container */
@@ -228,6 +236,10 @@
   display: none;
 }
 
+.option-container-selected {
+  border-color:rgb(28, 5, 208);
+  background-color: hsl(208, 93%, 90%);
+}
 @media screen and (min-width: 860px){
   .form-container {
     flex-flow: row wrap;
@@ -287,23 +299,24 @@
     margin-left: 0rem;
   }
 
-  .footerButtons {
+  .footer-buttons {
     width: auto;
     bottom: -2rem;
+    display: flex;
+    justify-content: center;
   }
-  .forwardButton {
-    right: 2.5rem;
+  .forward-button {
     margin: 0;
     width: 6rem;
     height: 2.2rem;
     font-size: 1rem;
-    top: 2rem;
-
+    right: 1rem;
+    
   }
   .backward-button {
     position: absolute;
-    left: -30.8rem;
-    top: 1rem;
+    left: -31.8rem;
+    bottom: 1.2rem;
     font-size: 1rem;
   }
   .option-container {
@@ -312,14 +325,18 @@
     justify-content: space-between;
     min-height: 8rem;
     min-width: 8rem;
+    margin-left: 1rem;
   }
 
   .step-two-options {
     display: flex;
     justify-content: space-between;
-    margin-top: 2rem;
+    margin-top: 0.5rem;
   }
 
+  .interval-toggle {
+    margin-left: 1rem;
+  }
   .step-info {
     font-size: 1rem;
   }  
@@ -328,4 +345,14 @@
   .option-container:hover{
     border: solid rgb(28, 5, 208);
   }
+  .header, .form-field {
+    margin-left: 1rem;
+  }
+
+  .option-container-three {
+    max-width: 100%;
+    height: 50px;
+    margin-left: 1rem;
+  }
+  
 }

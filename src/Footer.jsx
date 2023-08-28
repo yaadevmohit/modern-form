@@ -1,9 +1,9 @@
 const Footer = ({handleClick, step}) => {
     return (
         <>
-            <div className='footerButtons'>
+            <div className='footer-buttons'>
                 <button className={step > 1 ? 'backward-button' : 'hide-btn'} onClick={handleClick} value="back-btn" type="submit">Go Back</button>
-                <button className='forwardButton' onClick={handleClick} value="fwd-btn">Next Step</button>
+                <button className={step <= 4 ? 'forward-button' : 'hide-btn'} onClick={handleClick} value="fwd-btn">{step < 4 ? "Next Step" : "Confirm"}</button>
             </div>
         </>
     )

@@ -8,7 +8,7 @@ const StepOne = ({onChange, data}) => {
 
   const formInputs = inputData.map( input => {
     return(
-       <div className='form-field'>
+       <div className='form-field' key={input.id}>
             <legend htmlFor={input.id}>{input.name}</legend>
             <input required type={input.type} name={input.id} placeholder={input.placeholder}  className='form-input' onChange={onChange} value={data[input.id]}/>
         </div>

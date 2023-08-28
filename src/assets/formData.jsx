@@ -74,6 +74,31 @@ export default {
             yrPrice: "$150/yr",
             isChecked: false,
             id: "pro"
+        },
+    ],
+    stepThreeOptions: [
+        {
+            name: "Online service",
+            info: "Access to multiplayer games",
+            price: "+$1/mo",
+            id:"online_service",
+            yrPrice: "+$10/yr"
+        },
+
+        {
+            name: "Larger storage",
+            info: "Extra 1TB of cloud save",
+            price: "+$2/mo",
+            id:"lrg_storage",
+            yrPrice: "+$20/yr"
+        },
+
+        {
+            name: "Customizable profile",
+            info: "Custom theme on your profile",
+            price: "+$2/mo",
+            id:"custom_profile",
+            yrPrice: "+$20/yr"
         }
     ]
 }

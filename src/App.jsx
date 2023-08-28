@@ -6,6 +6,7 @@ import './index.css'
 import './App.css'
 import StepThree from './StepThree'
 import data from "./assets/formData"
+import Summary from './Summary'
 
 const App = () =>  {
   const [step, setStep] = useState(1)
@@ -14,7 +15,11 @@ const App = () =>  {
         name: "",
         email: "",
         phone: "",
+        plan: "arcade",
+        addOns: [], 
       })
+
+  const [isYearly, setIsYearly] = useState(false)
 
   function handleClick(e) {
     e.preventDefault()
@@ -40,9 +45,20 @@ const App = () =>  {
     })
   }
 
+  function handleSelected(e) {
+    setFormData(prevData  => {
+      return {
+        ...prevData,
+        plan: e.target.id === prevData.plan ? "" : e.target.id
+      }
+    })
+  }
+  function handleYearlyToggle() {
+    setIsYearly(!isYearly)
+  }
   const buttonsData = data.formSteps
   const formButtons = buttonsData.map(button => {
-    return (<div className='form-step'>
+    return (<div className='form-step' key={button.key}>
               <div 
                 className={step === button.key ? "form-step-button active" : "form-step-button"} key={button.key}
               >
@@ -52,8 +68,9 @@ const App = () =>  {
               <span id="button-name">{button.name}<br/></span>
               <span id="button-info">{button.info}</span>
             </div> 
-            </div>)
-  })
+            </div>
+            )
+    })
 
   return (
     <>
@@ -64,12 +81,14 @@ const App = () =>  {
         <form className='main-form'>
           <div className='form-input-container'>
             {
-              step == 1 ? <StepOne onChange={handleChange} data={formData}/> 
+                step == 1 ? <StepOne onChange={handleChange} data={formData}/> 
               : 
-                step == 2 ? <StepTwo /> 
+                step == 2 ? <StepTwo handleToggle={handleYearlyToggle} handleSelected={handleSelected} Yearly={isYearly} selectedPlan={formData.plan}/> 
               : 
-                step==3 ? <StepThree/> 
+                step==3 ? <StepThree yearly={isYearly}/> 
               : 
+                step==4 ? <Summary />
+              :
                 <div></div>
             }
           </div>
