@@ -1,15 +1,23 @@
 import React from 'react'
-import InputField from './InputField'
 import StepInfo from './StepInfo'
+import formData from "./assets/formData"
 
-const StepOne = ({onChange, value}) => {
+const StepOne = ({onChange, data}) => {
 
+  const inputData = formData.stepOneInputs
+
+  const formInputs = inputData.map( input => {
+    return(
+       <div className='form-field'>
+            <legend htmlFor={input.id}>{input.name}</legend>
+            <input required type={input.type} name={input.id} placeholder={input.placeholder}  className='form-input' onChange={onChange} value={data[input.id]}/>
+        </div>
+    )
+  })
   return (
     <>
         <StepInfo heading="Personal info" about="Please provide your name, email address, and phone number."/>
-        <InputField name="name" id="name" type="text" placeholder="e.g. stephen king" onChange={onChange} value={value.name} />
-        <InputField name="email" id="email" type="mail" placeholder="e.g. anexample@example.com" onChange={onChange} value={value.email}/>
-        <InputField name="phone" id="phone" type="tel" placeholder="+1 1234567890" onChange={onChange} value={value.phone}/>
+        {formInputs}
     </>
   )
 }

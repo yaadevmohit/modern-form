@@ -1,4 +1,4 @@
-const StepInfo = ({heading, about, step}) => {
+const StepInfo = ({heading, about}) => {
     return (
       <div >
         <h2 className='heading-info'>{heading}</h2>
