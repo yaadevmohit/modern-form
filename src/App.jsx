@@ -15,11 +15,12 @@ const App = () =>  {
         name: "",
         email: "",
         phone: "",
-        plan: "arcade",
+        plan: "",
         addOns: [], 
       })
 
   const [isYearly, setIsYearly] = useState(false)
+
 
   function handleClick(e) {
     e.preventDefault()
@@ -36,7 +37,7 @@ const App = () =>  {
   }
 
   function handleChange(event) {
-    const {name, value, type, checked} = event.target
+    const {name, value} = event.target
     setFormData(prevData => {
       return {
         ...prevData,
@@ -56,7 +57,8 @@ const App = () =>  {
           }
         })
       }
-      else {
+      else 
+      {
       setFormData(prevData => {
         return {
           ...prevData,

@@ -343,7 +343,7 @@
 
 
   .option-container:hover{
-    border: solid rgb(28, 5, 208);
+    border-color:rgb(28, 5, 208);
   }
   .header, .form-field {
     margin-left: 1rem;
