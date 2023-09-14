@@ -14,7 +14,7 @@ const StepTwo = ({handleToggle, Yearly, handleSelected, selectedPlan}) => {
                 <img src={option.logo}/>
                 <label className='option' htmlFor={option.id}>
                     {option.name}
-                    <span>{Yearly ? option.yrPrice : option.moPrice}</span>
+                    <span>{Yearly ? `$${option.yrPrice}/yr` : `$${option.moPrice}/mo`}</span>
                     {Yearly && <span className='discount-span'>2 Months free</span>}   
                 </label>
             </div>

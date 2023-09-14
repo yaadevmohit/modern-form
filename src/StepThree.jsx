@@ -14,7 +14,7 @@ const StepThree = ({yearly, handleChange, selectedAddOns}) => {
                     {option.name}
                     <span>{option.info}</span>
                 </label>
-                <span className='add-price'>{yearly ? option.yrPrice : option.price}</span>
+                <span className='add-price'>{yearly ? `+$${option.yrPrice}/yr` : `+$${option.moPrice}/mo`}</span>
             </div>
         )
     })

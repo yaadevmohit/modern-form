@@ -7,6 +7,7 @@ import './App.css'
 import StepThree from './StepThree'
 import data from "./assets/formData"
 import Summary from './Summary'
+import ThankYou from './ThankYou'
 
 const App = () =>  {
   const [step, setStep] = useState(1)
@@ -18,7 +19,7 @@ const App = () =>  {
         plan: "",
         addOns: [], 
       })
-
+  
   const [isYearly, setIsYearly] = useState(false)
 
 
@@ -30,6 +31,9 @@ const App = () =>  {
     else if (e.target.value == 'fwd-btn' && step <= 4){
 
       setStep(step + 1)
+    }
+    else if (e.target.value == "change") {
+      setStep(2)
     }
     else {
       setStep(e.target.value)
@@ -106,13 +110,21 @@ const App = () =>  {
             {
                 step == 1 ? <StepOne onChange={handleChange} data={formData}/> 
               : 
-                step == 2 ? <StepTwo handleToggle={handleYearlyToggle} handleSelected={handleSelected} Yearly={isYearly} selectedPlan={formData.plan}/> 
+                step == 2 
+                  ? 
+                  <StepTwo handleToggle={handleYearlyToggle} handleSelected={handleSelected} Yearly={isYearly} selectedPlan={formData.plan}/> 
               : 
-                step==3 ? <StepThree yearly={isYearly} handleChange={handleSelected} selectedAddOns={formData.addOns}/> 
+
+                step==3 
+                ? 
+                <StepThree yearly={isYearly} handleChange={handleSelected} selectedAddOns={formData.addOns}/> 
               : 
-                step==4 ? <Summary />
+
+                step==4 
+                ? 
+                <Summary yearly={isYearly} planSelected={formData.plan} addOnsSelected={formData.addOns} handleClick={handleClick}/>
               :
-                <div></div>
+                <ThankYou />
             }
           </div>
           {step <= 4 && <Footer handleClick={handleClick} step={step}/>}

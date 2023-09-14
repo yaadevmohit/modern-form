@@ -1,6 +1,7 @@
 import arcadeSvg from './images/icon-arcade.svg'
 import advancedSvg from './images/icon-advanced.svg'
 import proSvg from './images/icon-pro.svg'
+
 export default {
     formSteps: [
         {
@@ -52,8 +53,8 @@ export default {
         {
             name: "Arcade",
             logo: arcadeSvg,
-            moPrice: "$9/mo",
-            yrPrice: "$99/yr",
+            moPrice: 9,
+            yrPrice: 99,
             isChecked: false,
             id:"arcade"
         },
@@ -61,8 +62,8 @@ export default {
         {
             name: "Advanced",
             logo: advancedSvg,
-            moPrice: "$12/mo",
-            yrPrice: "$120/yr",
+            moPrice: 12,
+            yrPrice: 120,
             isChecked: false,
             id:"advanced"
         },
@@ -70,8 +71,8 @@ export default {
         {
             name: "Pro",
             logo: proSvg,
-            moPrice: "$15/mo",
-            yrPrice: "$150/yr",
+            moPrice: 15,
+            yrPrice: 150,
             isChecked: false,
             id: "pro"
         },
@@ -80,25 +81,25 @@ export default {
         {
             name: "Online service",
             info: "Access to multiplayer games",
-            price: "+$1/mo",
+            moPrice: 1,
             id:"online_service",
-            yrPrice: "+$10/yr"
+            yrPrice: 10
         },
 
         {
             name: "Larger storage",
             info: "Extra 1TB of cloud save",
-            price: "+$2/mo",
+            moPrice: 2,
             id:"lrg_storage",
-            yrPrice: "+$20/yr"
+            yrPrice: 20
         },
 
         {
             name: "Customizable profile",
             info: "Custom theme on your profile",
-            price: "+$2/mo",
+            moPrice: 2,
             id:"custom_profile",
-            yrPrice: "+$20/yr"
+            yrPrice: 20
         }
     ]
 }
