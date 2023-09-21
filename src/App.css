@@ -261,6 +261,79 @@
   color: var(--cool-gray);
   font-family: "Ubuntu-Regular";
 }
+
+.options-total {
+  margin-inline: 2rem;
+  margin-block: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.summary-container {
+  margin: 1rem;
+  padding: 1rem;
+  background-color: hsl(208, 93%, 96%);
+  border-radius: 8px;
+}
+
+.summary-option {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.summary-option.main {
+  padding-bottom: 2rem;
+  border-bottom: solid hsl(206, 60%, 85%);
+  border-width: thin;
+}
+
+
+.option-change {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.option-change > button {
+  text-decoration: underline;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  color: var(--cool-gray);
+  font-family: "Ubuntu-Regular";
+  cursor: pointer;
+}
+
+.pr-option {
+  color: var(--marine-blue);
+  font-family: "Ubuntu-Medium";
+}
+
+.sr-option, .total {
+  color: var(--cool-gray);
+  font-family: "Ubuntu-Regular";
+  font-weight: 50;
+  font-size: 14px;
+}
+
+.total {
+  font-size: 16px;
+}
+
+.sr-option-price {
+  color: var(--marine-blue);
+  font-family: "Ubuntu-Regular";
+  font-size: 14px;
+}
+
+.total-price {
+  color: var(--purplish-blue);
+  font-family: "Ubuntu-Bold";
+ 
+}
+
+
 @media screen and (min-width: 860px) {
   .form-container {
     flex-flow: row wrap;
@@ -323,6 +396,7 @@
     width: 100%;
     justify-content: center;
     height: 10px;
+    position: relative;
   }
 
   .forward-button {
@@ -331,7 +405,7 @@
     width: 6rem;
     height: 2.2rem;
     font-size: 1rem;
-    right: 2rem;
+    right: -2rem;
     bottom: -4rem;
     
   }
@@ -396,78 +470,16 @@
     justify-content: center;
     align-items: center;
   }
-
+  
   .ty-container > img {
     max-width: 80px;
   }
+  
+  .options-total {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+     margin-inline: 1rem;
+  }
 }
-
-.summary-container {
-  margin: 1rem;
-  padding: 1rem;
-  background-color: hsl(208, 93%, 96%);
-  border-radius: 8px;
-}
-
-.summary-option {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 1.5rem;
-}
-
-.summary-option.main {
-  padding-bottom: 2rem;
-  border-bottom: solid hsl(206, 60%, 85%);
-  border-width: thin;
-}
-
-.options-total {
-  margin-inline: 1rem;
-  margin-bottom: -1rem;
-  padding: 1rem;
-  display: flex;
-  justify-content: space-between;
-}
-
-.option-change {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.option-change > button {
-  text-decoration: underline;
-  background-color: transparent;
-  border: none;
-  padding: 0;
-  color: var(--cool-gray);
-  font-family: "Ubuntu-Regular";
-  cursor: pointer;
-}
-
-.pr-option {
-  color: var(--marine-blue);
-  font-family: "Ubuntu-Medium";
-}
-
-.sr-option {
-  color: var(--cool-gray);
-  font-family: "Ubuntu-Regular";
-  font-weight: 50;
-  font-size: 14px;
-}
-
-.sr-option-price {
-  color: var(--marine-blue);
-  font-family: "Ubuntu-Regular";
-  font-size: 14px;
-}
-
-.total-price {
-  color: var(--purplish-blue);
-  font-family: "Ubuntu-Bold";
- 
-}
-
-
 

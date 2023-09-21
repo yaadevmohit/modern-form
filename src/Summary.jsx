@@ -32,7 +32,7 @@ const Summary = ({yearly, planSelected, addOnsSelected, handleClick}) => {
                 {stepThreeElement}
             </div>
             <div className="options-total">
-                <span className="sr-option">Total (per {yearly ? "year" : "month"})</span>
+                <span className="total">Total (per {yearly ? "year" : "month"})</span>
                 <span className="total-price">
                     {
                     yearly 
