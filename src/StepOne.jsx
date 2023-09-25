@@ -2,7 +2,7 @@ import React from 'react'
 import StepInfo from './StepInfo'
 import formData from "./assets/formData"
 
-const StepOne = ({onChange, data, error}) => {
+const StepOne = ({onChange, data, errors}) => {
 
   const inputData = formData.stepOneInputs
   const styles = {
@@ -11,9 +11,21 @@ const StepOne = ({onChange, data, error}) => {
   const formInputs = inputData.map( input => {
     return(
        <div className='form-field' key={input.id}>
-            <legend htmlFor={input.id}>{input.name}</legend>
-            <input required type={input.type} name={input.id} placeholder={input.placeholder}  className='form-input' onChange={onChange} value={data[input.id]}/>
-            {/* <p>Input field required</p> */}
+            <legend htmlFor={input.id}>
+              {input.name}
+            </legend>
+            {errors[input.id] && <span className='validation-error'>{errors[input.id]}</span>}
+            <input 
+              required 
+              type={input.type} 
+              name={input.id} 
+              placeholder={input.placeholder}  
+              className='form-input' 
+              onChange={onChange} 
+              value={data[input.id]}
+              autoComplete='off'
+              style={errors[input.id] && styles}
+            />
         </div>
     )
   })

@@ -12,6 +12,7 @@ import ThankYou from './ThankYou'
 const App = () =>  {
 
   const [step, setStep] = useState(1)
+  
   const [formData, setFormData] = useState(
     {
         name: "",
@@ -19,8 +20,10 @@ const App = () =>  {
         phone: "",
         plan: "arcade",
         addOns: [], 
-      })
-  
+      }
+      )
+  const [errors, setErrors] = useState({})
+  console.log(errors)
   const [isYearly, setIsYearly] = useState(false)
 
 
@@ -31,8 +34,24 @@ const App = () =>  {
     }
     else if (e.target.value == 'fwd-btn' && step <= 4){
       if (step === 1) {
-        (formData.name.length > 1 && formData.email.length > 1 && formData.phone.length > 1 && setStep(step + 1))
-        
+        const validationErrors = {}
+        if(!formData.name.trim())   {
+          validationErrors.name = "Username is required."
+        }
+        if(!formData.email.trim()) {
+          validationErrors.email = "Email is required."
+        } else if(!/\S+@\S+\.\S+/.test(formData.email)) {
+          validationErrors.email= "Email is not valid."
+        }
+        if(!formData.phone.trim()) {
+          validationErrors.phone= "Phone is required"
+        } else if(!/^\d+$/.test(formData.phone) || formData.phone.length !== 10) {
+          validationErrors.phone= "Phone number is not valid."
+        }
+        setErrors(validationErrors)
+        if(Object.keys(validationErrors).length === 0) {
+          setStep(2)
+        }
       }
       else if (step === 2) {
         (formData.plan.length > 0 && setStep(step + 1))
@@ -59,7 +78,7 @@ const App = () =>  {
     })
   }
 
-  function handleSelected(e) {
+  function handleSelected(e, optionId) {
     if (e.target.type === "checkbox") {
       if (formData.addOns.includes(e.target.name)) {
         const currentOptions = formData.addOns.filter(option => option !== e.target.name)
@@ -84,7 +103,7 @@ const App = () =>  {
     setFormData(prevData  => {
       return {
         ...prevData,
-        plan: e.target.id === prevData.plan ? "" : e.target.id
+        plan: optionId
       }
     })
     }
@@ -100,12 +119,12 @@ const App = () =>  {
               >
                 {button.key}
               </div>
-            <div className="step-info">
-              <span id="button-name">{button.name}<br/></span>
-              <span id="button-info">{button.info}</span>
-            </div> 
+              <div className="step-info">
+                <span id="button-name">{button.name}<br/></span>
+                <span id="button-info">{button.info}</span>
+              </div> 
             </div>
-            )
+          )
     })
 
   return (
@@ -116,26 +135,18 @@ const App = () =>  {
         </div>
         <form className='main-form'>
           <div className='form-input-container'>
-            {
-                step == 1 
-                  ? <StepOne onChange={handleChange} data={formData} onClick={handleClick}/> 
-              : 
-                step == 2 
-                  ? 
-                  <StepTwo handleToggle={handleYearlyToggle} handleSelected={handleSelected} Yearly={isYearly} selectedPlan={formData.plan} onClick={handleClick}/> 
-              : 
-
-                step==3 
-                  ? 
-                  <StepThree yearly={isYearly} handleChange={handleSelected} selectedAddOns={formData.addOns}/> 
-              : 
-
-                step==4 
-                  ? 
-                  <Summary yearly={isYearly} planSelected={formData.plan} addOnsSelected={formData.addOns} handleClick={handleClick}/>
-              :
-                <ThankYou />
-            }
+            {step == 1 
+              && 
+            <StepOne 
+              onChange={handleChange} 
+              data={formData} 
+              onClick={handleClick}
+              errors={errors}
+            />} 
+            {step == 2 && <StepTwo handleToggle={handleYearlyToggle} handleSelected={handleSelected} Yearly={isYearly} selectedPlan={formData.plan} onClick={handleClick}/> }
+            {step == 3 && <StepThree yearly={isYearly} handleChange={handleSelected} selectedAddOns={formData.addOns}/>} 
+            {step == 4 && <Summary yearly={isYearly} planSelected={formData.plan} addOnsSelected={formData.addOns} handleClick={handleClick}/>}
+            {step > 4 && <ThankYou />}            
           </div>
           {step <= 4 && <Footer handleClick={handleClick} step={step}/>}
         </form>

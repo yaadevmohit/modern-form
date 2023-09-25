@@ -10,7 +10,7 @@ const StepTwo = ({handleToggle, Yearly, handleSelected, selectedPlan}) => {
     
     const options = optionsData.map(option => {
         return (
-            <div className={`option-container ${selectedPlan === option.id && "option-container-selected"}`} key={option.id} id={option.id} onClick={handleSelected}>
+            <div className={`option-container ${selectedPlan === option.id && "option-container-selected"}`} key={option.id} id={option.id} onClick={(e) => handleSelected(e, option.id)}>
                 <img src={option.logo}/>
                 <label className='option' htmlFor={option.id}>
                     {option.name}
