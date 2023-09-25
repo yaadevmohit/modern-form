@@ -348,6 +348,7 @@
   align-self: flex-end;
   text-align: end;
   margin-right: -1rem;
+  font-family: "Ubuntu-Medium";
 }
 
 @media screen and (min-width: 860px) {

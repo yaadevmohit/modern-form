@@ -36,17 +36,17 @@ const App = () =>  {
       if (step === 1) {
         const validationErrors = {}
         if(!formData.name.trim())   {
-          validationErrors.name = "Username is required."
+          validationErrors.name = "Username is required"
         }
         if(!formData.email.trim()) {
-          validationErrors.email = "Email is required."
+          validationErrors.email = "Email is required"
         } else if(!/\S+@\S+\.\S+/.test(formData.email)) {
-          validationErrors.email= "Email is not valid."
+          validationErrors.email= "Email is not valid"
         }
         if(!formData.phone.trim()) {
           validationErrors.phone= "Phone is required"
         } else if(!/^\d+$/.test(formData.phone) || formData.phone.length !== 10) {
-          validationErrors.phone= "Phone number is not valid."
+          validationErrors.phone= "Phone number is not valid"
         }
         setErrors(validationErrors)
         if(Object.keys(validationErrors).length === 0) {
