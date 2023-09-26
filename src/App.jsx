@@ -63,9 +63,6 @@ const App = () =>  {
     else if (e.target.value == "change") {
       setStep(2)
     }
-    else {
-      setStep(e.target.value)
-    }
   }
 
   function handleChange(event) {
@@ -133,7 +130,7 @@ const App = () =>  {
         <div  className='form-step-container'>
                   {formButtons}
         </div>
-        <form className='main-form'>
+        <form className='main-form' onSubmit={handleClick}>
           <div className='form-input-container'>
             {step == 1 
               && 

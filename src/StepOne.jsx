@@ -23,7 +23,6 @@ const StepOne = ({onChange, data, errors}) => {
               className='form-input' 
               onChange={onChange} 
               value={data[input.id]}
-              autoComplete='off'
               style={errors[input.id] && styles}
             />
         </div>
