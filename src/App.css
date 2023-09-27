@@ -63,7 +63,7 @@
   position: absolute;
   bottom: 0;
   right: 0rem;
-  height: 4rem;
+  height: 5rem;
   background-color: white;
   width: 100vw;
 
@@ -71,7 +71,7 @@
 
 .forward-button {
   border: none;
-  margin: 1.25rem;
+  margin: 1.50rem;
   padding: 6px;
   border-radius: 4px;
   background-color: hsl(213,96%,18%);
@@ -80,6 +80,9 @@
   position: absolute;
   right: 4px;
   cursor: pointer;
+  height: 3rem;
+  width: 6rem;
+  font-size: 1rem;
 }
 
 .forward-button:hover {
@@ -90,9 +93,10 @@
   background-color: transparent;
   color: gray;
   font-family: "Ubuntu-Regular";
-  margin: 1rem;
+  margin: 2rem;
   padding: 6px;
   cursor: pointer;
+  font-size: 1rem;
 }
 
 .hide-btn {

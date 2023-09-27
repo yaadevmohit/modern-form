@@ -46,7 +46,7 @@ const App = () =>  {
         if(!formData.phone.trim()) {
           validationErrors.phone= "Phone is required"
         } else if(!/^\d+$/.test(formData.phone) || formData.phone.length !== 10) {
-          validationErrors.phone= "Phone number is not valid(should be 10 digits long)"
+          validationErrors.phone= "Phone number not valid"
         }
         setErrors(validationErrors)
         if(Object.keys(validationErrors).length === 0) {
