@@ -22,7 +22,10 @@ const StepTwo = ({handleToggle, Yearly, handleSelected, selectedPlan}) => {
     })
     return(
         <>  
-            <StepInfo heading="Select your plan" about="You have the option of monthly or yearly billing."/>
+           <StepInfo 
+            heading="Select your plan" 
+            about="You have the option of monthly or yearly billing."
+           />
            <div className='step-two-options'>{options}</div>
             <div className='interval-toggle'>
                 <span>Monthly</span>

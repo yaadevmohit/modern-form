@@ -23,11 +23,10 @@ const App = () =>  {
       }
       )
   const [errors, setErrors] = useState({})
-  console.log(errors)
   const [isYearly, setIsYearly] = useState(false)
 
 
-  function handleClick(e) {
+  const handleClick = (e) => {
     e.preventDefault()
     if (e.target.value == "back-btn" && step > 1) {
       setStep(step - 1)
@@ -65,7 +64,7 @@ const App = () =>  {
     }
   }
 
-  function handleChange(event) {
+  const handleChange = (event) => {
     const {name, value} = event.target
     setFormData(prevData => {
       return {
@@ -75,7 +74,7 @@ const App = () =>  {
     })
   }
 
-  function handleSelected(e, optionId) {
+  const handleSelected = (e, optionId) => {
     if (e.target.type === "checkbox") {
       if (formData.addOns.includes(e.target.name)) {
         const currentOptions = formData.addOns.filter(option => option !== e.target.name)
@@ -105,7 +104,7 @@ const App = () =>  {
     })
     }
   }
-  function handleYearlyToggle() {
+  const handleYearlyToggle = () => {
     setIsYearly(!isYearly)
   }
   const buttonsData = data.formSteps
@@ -128,7 +127,7 @@ const App = () =>  {
     <>
       <div className='form-container'>
         <div  className='form-step-container'>
-                  {formButtons}
+            {formButtons}
         </div>
         <form className='main-form' onSubmit={handleClick}>
           <div className='form-input-container'>

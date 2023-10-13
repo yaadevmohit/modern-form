@@ -3,7 +3,7 @@ import StepInfo from './StepInfo'
 import formData from "./assets/formData"
 
 const StepOne = ({onChange, data, errors}) => {
-
+  // getting data for step one inputs
   const inputData = formData.stepOneInputs
   const styles = {
     borderColor: "red",
@@ -30,7 +30,10 @@ const StepOne = ({onChange, data, errors}) => {
   })
   return (
     <>
-        <StepInfo heading="Personal info" about="Please provide your name, email address, and phone number."/>
+        <StepInfo 
+          heading="Personal info" 
+          about="Please provide your name, email address, and phone number."
+        />
         {formInputs}
     </>
   )
