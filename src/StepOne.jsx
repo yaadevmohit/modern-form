@@ -31,7 +31,7 @@ const StepOne = ({onChange, data, errors}) => {
   return (
     <>
         <StepInfo 
-          heading="yo Personal info" 
+          heading="Personal info" 
           about="Please provide your name, email address, and phone number."
         />
         {formInputs}
