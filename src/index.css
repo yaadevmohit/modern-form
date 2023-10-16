@@ -1,23 +1,22 @@
-
 @font-face {
-  font-family: "Ubuntu-Bold";
-  src: url("./assets/fonts/Ubuntu-Bold.ttf") format('truetype');
+	font-family: 'Ubuntu-Bold';
+	src: url('./assets/fonts/Ubuntu-Bold.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: "Ubuntu-Medium";
-  src: url("./assets/fonts/Ubuntu-Medium.ttf") format('truetype');
+	font-family: 'Ubuntu-Medium';
+	src: url('./assets/fonts/Ubuntu-Medium.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: "Ubuntu-Regular";
-  src: url("./assets/fonts/Ubuntu-Regular.ttf") format('truetype');
+	font-family: 'Ubuntu-Regular';
+	src: url('./assets/fonts/Ubuntu-Regular.ttf') format('truetype');
 }
 body {
-  margin: 0;
-  background-color: hsl(206, 94%, 95%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	margin: 0;
+	background-color: hsl(206, 94%, 95%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: 'Ubuntu-Regular';
 }
-
