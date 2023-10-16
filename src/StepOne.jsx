@@ -28,7 +28,7 @@ const StepOne = ({ onChange, data, errors }) => {
 							className="form-input"
 							onChange={onChange}
 							value={data[input.id] || ''}
-							style={isError ? { bordercolor: 'red' } : {}} // inline style for input border only
+							style={isError ? { borderColor: 'red' } : {}}
 						/>
 					</div>
 				)
