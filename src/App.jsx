@@ -10,12 +10,12 @@ import Summary from './Summary'
 import ThankYou from './ThankYou'
 
 const App = () =>  {
-
+  // form current step
   const [step, setStep] = useState(1)
   
+  // data across all steps
   const [formData, setFormData] = useState(
     {
-      // all steps data
         name: "",
         email: "",
         phone: "",
@@ -23,14 +23,19 @@ const App = () =>  {
         addOns: [], 
       }
       )
-  const [errors, setErrors] = useState({}) // data state for step one errors only
-  const [isYearly, setIsYearly] = useState(false) // toggle option from step 2 
+
+  // data state for step one errors only
+  const [errors, setErrors] = useState({}) 
+  
+  // yearly subscription toggle state
+  const [isYearly, setIsYearly] = useState(false) 
 
 
   const handleClick = (e) => {
     e.preventDefault()
+    
+    // move one step back 
     if (e.target.value == "back-btn" && step > 1) {
-      // no validation for back-btn
       setStep(step - 1)
     }
     else if (e.target.value == 'fwd-btn' && step <= 4){
@@ -69,8 +74,8 @@ const App = () =>  {
     }
   }
 
+  // used to handle input chanegs in step 1
   const handleChange = (event) => {
-    // used for storing data for step 1
     const {name, value} = event.target
     setFormData(prevData => {
       return {
@@ -79,11 +84,11 @@ const App = () =>  {
       }
     })
   }
-
+  // used to handle changes for plans and addons
   const handleSelected = (e, optionId) => {
     if (e.target.type === "checkbox") {
       if (formData.addOns.includes(e.target.name)) {
-        // removing the option when unchecked
+        
         const currentOptions = formData.addOns.filter(option => option !== e.target.name)
         setFormData(prevData => {
           return {

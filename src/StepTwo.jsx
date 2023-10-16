@@ -8,9 +8,15 @@ const optionsData = data.stepTwoOptions
 const StepTwo = ({handleToggle, Yearly, handleSelected, selectedPlan}) => {
 
     
-    const options = optionsData.map(option => {
+    const optionsField = optionsData.map(option => {
         return (
-            <div className={`option-container ${selectedPlan === option.id && "option-container-selected"}`} key={option.id} id={option.id} onClick={(e) => handleSelected(e, option.id)}>
+            <div 
+                className={`option-container 
+                ${selectedPlan === option.id && "option-container-selected"}`} 
+                key={option.id} 
+                id={option.id} 
+                onClick={(e) => handleSelected(e, option.id)}
+            >
                 <img src={option.logo}/>
                 <label className='option' htmlFor={option.id}>
                     {option.name}
@@ -26,7 +32,7 @@ const StepTwo = ({handleToggle, Yearly, handleSelected, selectedPlan}) => {
             heading="Select your plan" 
             about="You have the option of monthly or yearly billing."
            />
-           <div className='step-two-options'>{options}</div>
+           <div className='step-two-options'>{optionsField}</div>
             <div className='interval-toggle'>
                 <span>Monthly</span>
                 <label className='switch'>

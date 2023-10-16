@@ -8,7 +8,7 @@ const StepOne = ({onChange, data, errors}) => {
   const styles = {
     borderColor: "red",
   }
-  const formInputs = inputData.map( input => {
+  const inputFields = inputData.map( input => {
     return(
        <div className='form-field' key={input.id}>
             <legend htmlFor={input.id}>
@@ -16,14 +16,13 @@ const StepOne = ({onChange, data, errors}) => {
             </legend>
             {errors[input.id] && <span className='validation-error'>{errors[input.id]}</span>}
             <input 
-              required 
               type={input.type} 
               name={input.id} 
               placeholder={input.placeholder}  
               className='form-input' 
               onChange={onChange} 
-              value={data[input.id]}
-              style={errors[input.id] && styles}
+              value={data[input.id] || ''}
+              style={errors[input.id] && styles} // inline style for input border only
             />
         </div>
     )
@@ -34,7 +33,7 @@ const StepOne = ({onChange, data, errors}) => {
           heading="Personal info" 
           about="Please provide your name, email address, and phone number."
         />
-        {formInputs}
+        {inputFields}
     </>
   )
 }
