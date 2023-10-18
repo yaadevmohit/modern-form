@@ -1,5 +1,5 @@
 import StepInfo from './StepInfo'
-import data from './assets/formData'
+import data from '../assets/formData'
 
 const optionsData = data.stepTwoOptions
 // eslint-disable-next-line react/prop-types

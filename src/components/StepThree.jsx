@@ -1,4 +1,4 @@
-import data from './assets/formData'
+import data from '../assets/formData'
 import StepInfo from './StepInfo'
 
 const optionsData = data.stepThreeOptions

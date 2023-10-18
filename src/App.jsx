@@ -1,13 +1,13 @@
 import { useState } from 'react'
-import StepOne from './StepOne'
-import StepTwo from './StepTwo'
-import Footer from './Footer'
+import StepOne from './components/StepOne'
+import StepTwo from './components/StepTwo'
+import Footer from './components/Footer'
 import './index.css'
 import './App.css'
-import StepThree from './StepThree'
+import StepThree from './components/StepThree'
 import data from './assets/formData'
-import StepFour from './StepFour'
-import ThankYou from './ThankYou'
+import StepFour from './components/StepFour'
+import ThankYou from './components/ThankYou'
 
 const validateStepOne = (formData) => {
 	const validationErrors = {}
@@ -74,7 +74,7 @@ const App = () => {
 	}
 
 	// used to handle input chanegs in step 1
-	const handleChange = (event) => {
+	const handleStepOneChange = (event) => {
 		const { name, value } = event.target
 		setFormData((prevData) => {
 			return {
@@ -154,7 +154,7 @@ const App = () => {
 					<div className="form-input-container">
 						{step == 1 && (
 							<StepOne
-								onChange={handleChange}
+								onChange={handleStepOneChange}
 								data={formData}
 								onClick={handleClick}
 								errors={stepOneErrors}

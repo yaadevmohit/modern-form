@@ -1,5 +1,5 @@
 import StepInfo from './StepInfo'
-import formData from './assets/formData'
+import formData from '../assets/formData'
 
 // eslint-disable-next-line react/prop-types
 const StepOne = ({ onChange, data, errors }) => {
