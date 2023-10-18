@@ -74,7 +74,7 @@ const App = () => {
 	}
 
 	// used to handle input chanegs in step 1
-	const handleChange = (event) => {
+	const handleStepOneChange = (event) => {
 		const { name, value } = event.target
 		setFormData((prevData) => {
 			return {
@@ -154,7 +154,7 @@ const App = () => {
 					<div className="form-input-container">
 						{step == 1 && (
 							<StepOne
-								onChange={handleChange}
+								onChange={handleStepOneChange}
 								data={formData}
 								onClick={handleClick}
 								errors={stepOneErrors}
