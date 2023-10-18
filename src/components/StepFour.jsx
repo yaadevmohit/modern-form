@@ -1,5 +1,5 @@
 import StepInfo from './StepInfo'
-import formData from './assets/formData'
+import formData from '../assets/formData'
 
 
 const StepFour = ({ yearly, planSelected, addOnsSelected, handleClick }) => {
@@ -56,14 +56,14 @@ const StepFour = ({ yearly, planSelected, addOnsSelected, handleClick }) => {
 									(accumulator, option) => accumulator + option.yrPrice,
 									0,
 								)
-						  }/yr`
+						}/yr`
 						: `$${
 								stepTwoElement.moPrice +
 								dataStepThree.reduce(
 									(accumulator, option) => accumulator + option.moPrice,
 									0,
 								)
-						  }/mo`}
+						}/mo`}
 				</span>
 			</div>
 		</>
