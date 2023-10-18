@@ -403,22 +403,16 @@
 		width: 100%;
 		justify-content: center;
 		height: 10px;
-		position: relative;
+		display: flex;
+		justify-content: space-between;
 	}
 
 	.forward-button {
-		margin-right: auto;
-		position: absolute;
 		width: 6rem;
 		height: 2.2rem;
 		font-size: 1rem;
-		right: -2rem;
-		bottom: -4rem;
 	}
 	.backward-button {
-		position: absolute;
-		bottom: -3rem;
-		right: 26rem;
 		font-size: 14px;
 	}
 	.option-container {

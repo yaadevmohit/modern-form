@@ -6,7 +6,7 @@ import './index.css'
 import './App.css'
 import StepThree from './StepThree'
 import data from './assets/formData'
-import Summary from './Summary'
+import StepFour from './StepFour'
 import ThankYou from './ThankYou'
 
 const validateStepOne = (formData) => {
@@ -43,7 +43,7 @@ const App = () => {
 	})
 
 	// data state for step one errors only
-	const [stepOneErrors, setErrors] = useState({})
+	const [stepOneErrors, setStepOneErrors] = useState({})
 
 	// yearly subscription toggle state
 	const [isYearly, setIsYearly] = useState(false)
@@ -58,7 +58,7 @@ const App = () => {
 			if (step === 1) {
 				// input validatons for step 1
 				const validationErrors = validateStepOne(formData)
-				setErrors(validationErrors)
+				setStepOneErrors(validationErrors)
 				// if no errors then move to next step
 				if (Object.keys(validationErrors).length === 0) {
 					setStep(2)
@@ -84,35 +84,39 @@ const App = () => {
 		})
 	}
 	// used to handle changes for plans and addons
-	const handleSelected = (e, optionId) => {
-		if (e.target.type === 'checkbox') {
-			if (formData.addOns.includes(e.target.name)) {
-				const currentOptions = formData.addOns.filter(
-					(option) => option !== e.target.name,
-				)
-				setFormData((prevData) => {
-					return {
-						...prevData,
-						addOns: currentOptions,
-					}
-				})
-			} else {
-				setFormData((prevData) => {
-					return {
-						...prevData,
-						addOns: [...prevData.addOns, e.target.name],
-					}
-				})
+	
+	const handleStepTwoSelection = (e, optionId) => {
+		setFormData((prevData) => {
+			return {
+				...prevData,
+				plan: optionId,
 			}
-		} else {
+		})
+	}
+
+	const handleStepThreeSelections = (e, optionId) => {
+		if (formData.addOns.includes(optionId)) {
+			const updatedAddOns = formData.addOns.filter(
+				option => option !== optionId
+			)
 			setFormData((prevData) => {
 				return {
 					...prevData,
-					plan: optionId,
+					addOns: updatedAddOns
+				}
+			})	
+		}
+		else {
+			setFormData((prevData) => {
+				return {
+					...prevData,
+					addOns: [...prevData.addOns, optionId]
 				}
 			})
 		}
+
 	}
+
 	const handleYearlyToggle = () => {
 		setIsYearly(!isYearly)
 	}
@@ -159,7 +163,7 @@ const App = () => {
 						{step == 2 && (
 							<StepTwo
 								handleToggle={handleYearlyToggle}
-								handleSelected={handleSelected}
+								handleSelected={handleStepTwoSelection}
 								Yearly={isYearly}
 								selectedPlan={formData.plan}
 								onClick={handleClick}
@@ -168,12 +172,12 @@ const App = () => {
 						{step == 3 && (
 							<StepThree
 								yearly={isYearly}
-								handleChange={handleSelected}
+								handleChange={handleStepThreeSelections}
 								selectedAddOns={formData.addOns}
 							/>
 						)}
 						{step == 4 && (
-							<Summary
+							<StepFour
 								yearly={isYearly}
 								planSelected={formData.plan}
 								addOnsSelected={formData.addOns}

@@ -1,6 +1,8 @@
 import StepInfo from './StepInfo'
 import formData from './assets/formData'
-const Summary = ({ yearly, planSelected, addOnsSelected, handleClick }) => {
+
+
+const StepFour = ({ yearly, planSelected, addOnsSelected, handleClick }) => {
 	const dataStepTwo = formData.stepTwoOptions
 	const dataStepThree = formData.stepThreeOptions.filter((option) =>
 		addOnsSelected.includes(option.id),
@@ -68,4 +70,4 @@ const Summary = ({ yearly, planSelected, addOnsSelected, handleClick }) => {
 	)
 }
 
-export default Summary
+export default StepFour
