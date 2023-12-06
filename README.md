@@ -4,8 +4,7 @@ This project is a mockup of a muti-step signup form created using React and vite
 ## Getting Started
 
 1. **Clone the Repository:**
-   git clone git@github.com:yaadevmohit/modern-form.git
-   cd modern-form
+   git clone git@github.com:yaadevmohit/modern-form.git-0-00897
 2. **Install Dependencies:**
    npm install
 3. **Run the development Server:**
