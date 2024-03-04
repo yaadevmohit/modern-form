@@ -1,4 +1,4 @@
-import thankYouSvg from './assets/images/icon-thank-you.svg'
+import thankYouSvg from '../assets/images/icon-thank-you.svg'
 
 export default function ThankYou() {
 	return (
