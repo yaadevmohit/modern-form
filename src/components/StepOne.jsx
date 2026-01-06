@@ -1,10 +1,15 @@
 import StepInfo from './StepInfo'
 import formData from '../assets/formData'
+import { useFormContext } from '../context/FormContext'
 
-// eslint-disable-next-line react/prop-types
-const StepOne = ({ onChange, data, errors }) => {
-	// getting data for step one inputs
+const StepOne = () => {
+	const { formData: formState, stepOneErrors, updateField } = useFormContext()
 	const inputData = formData.stepOneInputs
+
+	const handleChange = (event) => {
+		const { name, value } = event.target
+		updateField(name, value)
+	}
 
 	return (
 		<>
@@ -13,21 +18,21 @@ const StepOne = ({ onChange, data, errors }) => {
 				about="Please provide your name, email address, and phone number."
 			/>
 			{inputData.map((input) => {
-				const isError = errors[input.id] ? true : false
+				const isError = stepOneErrors[input.id] ? true : false
 
 				return (
 					<div className="form-field" key={input.id}>
 						<legend htmlFor={input.id}>{input.name}</legend>
-						{errors[input.id] && (
-							<span className="validation-error">{errors[input.id]}</span>
+						{stepOneErrors[input.id] && (
+							<span className="validation-error">{stepOneErrors[input.id]}</span>
 						)}
 						<input
 							type={input.type}
 							name={input.id}
 							placeholder={input.placeholder}
 							className="form-input"
-							onChange={onChange}
-							value={data[input.id] || ''}
+							onChange={handleChange}
+							value={formState[input.id] || ''}
 							style={isError ? { borderColor: 'red' } : {}}
 						/>
 					</div>
