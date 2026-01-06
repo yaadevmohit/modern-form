@@ -8,7 +8,7 @@ import StepThree from './components/StepThree'
 import data from './assets/formData'
 import StepFour from './components/StepFour'
 import ThankYou from './components/ThankYou'
-
+import StepButton from './components/StepButton'
 const validateStepOne = (formData) => {
 	const validationErrors = {}
 	// initializing object to contain errors
@@ -42,19 +42,19 @@ const App = () => {
 		addOns: [],
 	})
 
-	// data state for step one errors only
+	const [isYearly, setIsYearly] = useState(false)
 	const [stepOneErrors, setStepOneErrors] = useState({})
+	// state for step one errors only
 
 	// yearly subscription toggle state
-	const [isYearly, setIsYearly] = useState(false)
 
 	const handleClick = (e) => {
 		e.preventDefault()
 
 		// move one step back
-		if (e.target.value == 'back-btn' && step > 1) {
+		if (e.target.value === 'back-btn' && step > 1) {
 			setStep(step - 1)
-		} else if (e.target.value == 'fwd-btn' && step <= 4) {
+		} else if (e.target.value === 'fwd-btn' && step <= 4) {
 			if (step === 1) {
 				// input validatons for step 1
 				const validationErrors = validateStepOne(formData)
@@ -126,29 +126,7 @@ const App = () => {
 		<>
 			<div className="form-container">
 				<div className="form-step-container">
-					{buttonsData.map((button) => {
-						return (
-							<div className="form-step" key={button.step}>
-								<div
-									className={
-										step === button.step
-											? 'form-step-button active'
-											: 'form-step-button'
-									}
-									key={button.step}
-								>
-									{button.step}
-								</div>
-								<div className="step-info">
-									<span className="button-name">
-										{button.name}
-										<br />
-									</span>
-									<span id="button-info">{button.info}</span>
-								</div>
-							</div>
-						)
-					})}
+					{buttonsData.map((button) => <StepButton key={button.step} button={button} step={step} />)}
 				</div>
 				<form className="main-form" onSubmit={handleClick}>
 					<div className="form-input-container">

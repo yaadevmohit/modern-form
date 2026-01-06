@@ -1,4 +1,3 @@
-// eslint-disable-next-line react/prop-types
 const StepInfo = ({ heading, about }) => {
 	return (
 		<div className="header">
