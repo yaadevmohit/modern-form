@@ -1,5 +1,5 @@
 # Modern form 
-This project is a mockup of a muti-step signup form created using React and vite. The form is designed to guide users through four steps. 
+A muti-step signup form created using React and vite. The form is designed to guide users through four steps. 
 
 ## Getting Started
 
