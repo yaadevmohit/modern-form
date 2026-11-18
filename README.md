@@ -1,12 +1,12 @@
 # Modern form 
-A muti-step signup form created using React and vite. The form is designed to guide users through four steps. 
+A multi-step signup form mockup created using React and Vite. The form guides users through four steps. All values live only in React memory and reset on refresh. There is no backend, submission request, browser storage, or database.
 
 ## Getting Started
 
 1. **Clone the Repository:**
-   git clone git@github.com:yaadevmohit/modern-form.git-0-00897
+   git clone git@github.com:yaadevmohit/modern-form.git
 2. **Install Dependencies:**
-   npm install
+   npm ci --legacy-peer-deps
 3. **Run the development Server:**
    npm run dev
 
@@ -42,3 +42,10 @@ This form is divided into four step, each represented by a separate component:
 * **main.jsx**
 * **index.css**
 * **App.css** 
+
+## Verification
+
+- `npm run lint` checks the source.
+- `npm run build` creates the production bundle in `dist/`.
+- Check all steps on desktop and mobile, including validation errors, yearly billing, all add-ons, Back, Change, and Confirm. Next Step and Confirm should keep the same position at a given viewport size.
+- Press Enter from a personal-information field to advance, and use Tab and Space to operate plan cards, billing, and add-ons. Refresh to reset the mockup.

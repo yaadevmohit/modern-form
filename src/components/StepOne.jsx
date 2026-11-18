@@ -1,6 +1,6 @@
 import StepInfo from './StepInfo'
 import formData from '../assets/formData'
-import { useFormContext } from '../context/FormContext'
+import { useFormContext } from '../context/useFormContext'
 
 const StepOne = () => {
 	const { formData: formState, stepOneErrors, updateField } = useFormContext()
@@ -18,16 +18,19 @@ const StepOne = () => {
 				about="Please provide your name, email address, and phone number."
 			/>
 			{inputData.map((input) => {
-				const isError = stepOneErrors[input.id] ? true : false
+				const isError = Boolean(stepOneErrors[input.id])
 
 				return (
 					<div className="form-field" key={input.id}>
-						<legend htmlFor={input.id}>{input.name}</legend>
+						<label htmlFor={input.id}>{input.name}</label>
 						{stepOneErrors[input.id] && (
-							<span className="validation-error">{stepOneErrors[input.id]}</span>
+							<span className="validation-error" id={`${input.id}-error`} role="alert">{stepOneErrors[input.id]}</span>
 						)}
 						<input
+							id={input.id}
 							type={input.type}
+							aria-invalid={isError}
+							aria-describedby={isError ? `${input.id}-error` : undefined}
 							name={input.id}
 							placeholder={input.placeholder}
 							className="form-input"

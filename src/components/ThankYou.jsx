@@ -3,7 +3,7 @@ import thankYouSvg from '../assets/images/icon-thank-you.svg'
 export default function ThankYou() {
 	return (
 		<div className="ty-container">
-			<img src={thankYouSvg} />
+			<img src={thankYouSvg} alt="" />
 			<h1>Thank you!</h1>
 			<p>
 				Thank you for confirming your subscription! We hope you have fun using

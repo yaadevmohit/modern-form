@@ -1,6 +1,6 @@
 import data from '../assets/formData'
 import StepInfo from './StepInfo'
-import { useFormContext } from '../context/FormContext'
+import { useFormContext } from '../context/useFormContext'
 
 const optionsData = data.stepThreeOptions
 
@@ -16,28 +16,27 @@ const StepThree = () => {
 			{optionsData.map((option) => {
 				const isSelected = formData.addOns.includes(option.id)
 				return (
-					<div
+					<label
 						className={`option-container-three ${
 							isSelected ? 'option-container-selected' : ''
 						}`}
 						key={option.id}
-						onClick={() => toggleAddOn(option.id)}
 					>
 						<input
 							type="checkbox"
 							name={option.id}
 							value={option.id}
 							checked={isSelected}
-							readOnly
+							onChange={() => toggleAddOn(option.id)}
 						/>
-						<label className="option" htmlFor={option.id}>
+						<span className="option">
 							{option.name}
 							<span>{option.info}</span>
-						</label>
+						</span>
 						<span className="add-price">
 							{isYearly ? `+$${option.yrPrice}/yr` : `+$${option.moPrice}/mo`}
 						</span>
-					</div>
+					</label>
 				)
 			})}
 		</>

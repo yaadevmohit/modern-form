@@ -1,4 +1,5 @@
-import { useFormContext } from '../context/FormContext'
+import { useEffect, useRef } from 'react'
+import { useFormContext } from '../context/useFormContext'
 import StepOne from '../components/StepOne'
 import StepTwo from '../components/StepTwo'
 import StepThree from '../components/StepThree'
@@ -9,8 +10,18 @@ import Footer from '../components/Footer'
 import data from '../assets/formData'
 
 const FormContent = () => {
-	const { step } = useFormContext()
+	const { step, goForward } = useFormContext()
 	const buttonsData = data.formSteps
+	const contentRef = useRef(null)
+
+	useEffect(() => {
+		contentRef.current.scrollTop = 0
+	}, [step])
+
+	const handleSubmit = (event) => {
+		event.preventDefault()
+		goForward()
+	}
 
 	return (
 		<div className="form-container">
@@ -19,8 +30,8 @@ const FormContent = () => {
 					<StepButton key={button.step} button={button} />
 				))}
 			</div>
-			<form className="main-form">
-				<div className="form-input-container">
+			<form className="main-form" onSubmit={handleSubmit} noValidate autoComplete="off">
+				<div className="form-input-container" ref={contentRef}>
 					{step === 1 && <StepOne />}
 					{step === 2 && <StepTwo />}
 					{step === 3 && <StepThree />}

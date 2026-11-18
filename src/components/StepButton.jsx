@@ -1,18 +1,16 @@
-import { useFormContext } from '../context/FormContext'
+import { useFormContext } from '../context/useFormContext'
 
-// eslint-disable-next-line react/prop-types
 export default function StepButton({ button }) {
 	const { step } = useFormContext()
 
 	return (
-		<div className="form-step" key={button.step}>
+		<div className="form-step" aria-current={step === button.step ? 'step' : undefined}>
 			<div
 				className={
 					step === button.step
 						? 'form-step-button active'
 						: 'form-step-button'
 				}
-				key={button.step}
 			>
 				{button.step}
 			</div>
@@ -21,7 +19,7 @@ export default function StepButton({ button }) {
 					{button.name}
 					<br />
 				</span>
-				<span id="button-info">{button.info}</span>
+				<span className="button-info">{button.info}</span>
 			</div>
 		</div>
 	)

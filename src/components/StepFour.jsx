@@ -1,6 +1,6 @@
 import StepInfo from './StepInfo'
 import formData from '../assets/formData'
-import { useFormContext } from '../context/FormContext'
+import { useFormContext } from '../context/useFormContext'
 
 const StepFour = () => {
 	const { isYearly, formData: formState, goToPlanStep } = useFormContext()
@@ -35,7 +35,7 @@ const StepFour = () => {
 						<span className="pr-option">{`${stepTwoElement.name} (${
 							isYearly ? 'Yearly' : 'Monthly'
 						})`}</span>
-						<button onClick={goToPlanStep}>Change</button>
+						<button type="button" onClick={goToPlanStep}>Change</button>
 					</div>
 					<span className="pr-option">
 						{isYearly

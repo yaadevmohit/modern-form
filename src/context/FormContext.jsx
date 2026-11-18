@@ -1,4 +1,5 @@
-import { createContext, useContext, useMemo, useState } from 'react'
+import { useState } from 'react'
+import { FormContext } from './useFormContext'
 
 // Simple step-one validation extracted for reuse
 const validateStepOne = (formData) => {
@@ -6,7 +7,7 @@ const validateStepOne = (formData) => {
 	if (!formData.name.trim()) validationErrors.name = 'Username is required'
 	if (!formData.email.trim()) {
 		validationErrors.email = 'Email is required'
-	} else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+	} else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
 		validationErrors.email = 'Email is not valid'
 	}
 	if (!formData.phone.trim()) {
@@ -16,8 +17,6 @@ const validateStepOne = (formData) => {
 	}
 	return validationErrors
 }
-
-const FormContext = createContext(null)
 
 export const FormProvider = ({ children }) => {
 	const [step, setStep] = useState(1)
@@ -33,8 +32,14 @@ export const FormProvider = ({ children }) => {
 
 	const toggleYearly = () => setIsYearly((prev) => !prev)
 
-	const updateField = (name, value) =>
+	const updateField = (name, value) => {
 		setFormData((prev) => ({ ...prev, [name]: value }))
+		setStepOneErrors((prev) => {
+			const errors = { ...prev }
+			delete errors[name]
+			return errors
+		})
+	}
 
 	const selectPlan = (plan) => setFormData((prev) => ({ ...prev, plan }))
 
@@ -46,7 +51,7 @@ export const FormProvider = ({ children }) => {
 				: [...prev.addOns, id],
 		}))
 
-	const goBack = () => setStep((prev) => Math.max(1, prev - 1))
+	const goBack = () => setStep((prev) => prev <= 4 ? Math.max(1, prev - 1) : prev)
 
 	const goForward = () => {
 		if (step === 1) {
@@ -56,36 +61,22 @@ export const FormProvider = ({ children }) => {
 			return
 		}
 		if (step === 2 && formData.plan.length === 0) return
-		setStep((prev) => prev + 1)
+		setStep((prev) => Math.min(5, prev + 1))
 	}
 
-	const value = useMemo(
-		() => ({
-			step,
-			formData,
-			isYearly,
-			stepOneErrors,
-			setStep,
-			setFormData,
-			setIsYearly,
-			setStepOneErrors,
-			toggleYearly,
-			updateField,
-			selectPlan,
-			toggleAddOn,
-			goBack,
-			goForward,
-			goToPlanStep: () => setStep(2),
-		}),
-		[step, formData, isYearly, stepOneErrors],
-	)
+	const value = {
+		step,
+		formData,
+		isYearly,
+		stepOneErrors,
+		toggleYearly,
+		updateField,
+		selectPlan,
+		toggleAddOn,
+		goBack,
+		goForward,
+		goToPlanStep: () => setStep(2),
+	}
 
 	return <FormContext.Provider value={value}>{children}</FormContext.Provider>
 }
-
-export const useFormContext = () => {
-	const ctx = useContext(FormContext)
-	if (!ctx) throw new Error('useFormContext must be used inside FormProvider')
-	return ctx
-}
-

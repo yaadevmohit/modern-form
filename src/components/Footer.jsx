@@ -1,31 +1,18 @@
-import { useFormContext } from '../context/FormContext'
+import { useFormContext } from '../context/useFormContext'
 
 const Footer = () => {
-	const { step, goBack, goForward } = useFormContext()
-
-	const handleBack = (e) => {
-		e.preventDefault()
-		goBack()
-	}
-
-	const handleForward = (e) => {
-		e.preventDefault()
-		goForward()
-	}
+	const { step, goBack } = useFormContext()
 
 	return (
 		<div className="footer-buttons">
 			<button
 				className={step > 1 ? 'backward-button' : 'hide-btn'}
-				onClick={handleBack}
+				onClick={goBack}
+				type="button"
 			>
 				Go Back
 			</button>
-			<button
-				className={step <= 4 ? 'forward-button' : 'hide-btn'}
-				onClick={handleForward}
-				type="button"
-			>
+			<button className="forward-button" type="submit">
 				{step < 4 ? 'Next Step' : 'Confirm'}
 			</button>
 		</div>
