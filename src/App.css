@@ -386,6 +386,63 @@ button.option-container-selected,
 	font-family: 'Ubuntu-Medium';
 }
 
+/* Shared mobile frame: artwork above the card and a separate action bar. */
+@media screen and (max-width: 859px) {
+	.form-container {
+		min-height: 100svh;
+		flex-wrap: nowrap;
+	}
+
+	.form-step-container {
+		height: 172px;
+		flex-shrink: 0;
+		align-items: flex-start;
+		background-size: cover;
+		background-position: center top;
+		background-repeat: no-repeat;
+	}
+
+	.form-step-button {
+		margin-block: 2rem;
+	}
+
+	.main-form {
+		margin-top: -80px;
+		padding-bottom: calc(104px + env(safe-area-inset-bottom, 0px));
+		flex-shrink: 0;
+	}
+
+	.form-input-container {
+		top: 0;
+	}
+
+	.footer-buttons {
+		box-sizing: border-box;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		height: auto;
+		min-height: 72px;
+		margin: 0;
+		padding: 16px;
+		padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+		background: var(--white);
+	}
+
+	.forward-button {
+		position: static;
+		margin-left: auto;
+		height: 40px;
+		flex-shrink: 0;
+	}
+
+	.backward-button {
+		margin: 0;
+		padding-inline: 0;
+	}
+}
+
 @media screen and (max-width: 374px) {
 	.interval-toggle {
 		padding-inline: 1rem;
