@@ -3,10 +3,12 @@ A multi-step signup form mockup created using React and Vite. The form guides us
 
 ## Getting Started
 
+Use Node.js 26 (`nvm use` reads the included `.nvmrc`). Deployments use the same major version through `engines.node` in `package.json`.
+
 1. **Clone the Repository:**
    git clone git@github.com:yaadevmohit/modern-form.git
 2. **Install Dependencies:**
-   npm ci --legacy-peer-deps
+   npm ci
 3. **Run the development Server:**
    npm run dev
 
